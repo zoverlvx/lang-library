@@ -10,8 +10,11 @@ module.exports = function(req, res) {
         .first()
         .then(user => {
             if (user && bcrypt.compareSync(password, user.password)) {
+                console.log("it's working");
+                console.log(user);
+                console.log(username, password)
                 const token = tokenService.generateToken(user);
-                req.status(200).json({success: true, token});
+                res.status(200).json({success: true, token});
             }
             if (!user || !bcrypt.compareSync(password, user.password)) {
                 res.status(401).json({success: false, message: "Invalid credentials"});
