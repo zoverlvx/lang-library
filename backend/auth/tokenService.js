@@ -1,13 +1,11 @@
-const jwt = require("jsonwebtoken");
-console.log(jwt)
+/*jslint
+ node
+*/
 
-module.exports = {
-    generateToken
-};
+const jwt = require("jsonwebtoken");
 
 function generateToken(user) {
-    console.log("user passed to generateToken", user)
-    console.log(process.env.JWT_SECRET)
+    "use strict";
     const payload = {
         subject: user.id,
         username: user.username
@@ -17,3 +15,7 @@ function generateToken(user) {
     };
     return jwt.sign(payload, process.env.JWT_SECRET, options);
 }
+
+module.exports = {
+    generateToken
+};
