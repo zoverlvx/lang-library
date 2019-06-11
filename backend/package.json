@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "server": "env $(cat ./auth/.env) | node index.js"
+    "server": "env $(cat ./auth/.env) node index.js"
   },
   "author": "",
   "license": "ISC"
