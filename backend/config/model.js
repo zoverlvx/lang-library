@@ -1,26 +1,27 @@
+/*jslint
+    node
+*/
+
 const db = require("../database/dbConfig");
 
-module.exports = function(table) {
+module.exports = function (table) {
+    "use strict";
     function findBy(filter) {
         return db(table).where(filter);
     }
-
-    async function add(user) {
-        const [id] = await db(table).insert(user);
-        return findById(id);
-    }
-
     function findById(id) {
         return db(table)
             .select("id", "username")
             .where({id})
-            .first()
+            .first();
     }
-
+    function add(user) {
+        const newUser = db(table).insert(user);
+        return newUser.then((id) => findById(id[0])).catch((error) => error);
+    }
     return {
         findBy,
-        add,
-        findById
-    }
-}
-
+        findById,
+        add
+    };
+};
