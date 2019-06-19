@@ -23,7 +23,7 @@ export default function(postHandler) {
                     value={state.password}
                     onChange={handleChange}
                 />
-                <button type="submit">Submit<button>
+                <button type="submit">Submit</button>
             </form>
         );
     }

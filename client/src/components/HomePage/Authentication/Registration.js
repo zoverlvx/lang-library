@@ -1,9 +1,8 @@
-import React from "react";
 import {connect} from "react-redux";
-import makeRegistration from "./makers/makeForm";
-import {signupUser} from "../actions";
+import makeRegistration from "../../makers/makeForm";
+import {signupUser} from "../../../actions";
 
-const SignUp = makeRegistration("handleSignup");
+const Registration = makeRegistration("handleSignup");
 
 function mapStateToProps(
     {
