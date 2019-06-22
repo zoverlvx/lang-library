@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 
 export default function(postHandler) {
     return function(props) {
+        console.log("Here are the props passed to the forms", props);
         const [state, handleChange, o] = useAuth(props);
         const handler = o[postHandler];
 

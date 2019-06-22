@@ -11,7 +11,7 @@ export function loginUser(user) {
         dispatch({type: USER_LOGIN_INIT});
         return loggedIn.then(function (res) {
             if (res.data) {
-                localStorage.setItem(process.env.TOKEN, res.data.token);
+                localStorage.setItem(process.env.TOKEN_NAME, res.data.token);
                 dispatch({type: USER_LOGIN_SUCCESS, payload: res.data})
             }
         }).catch((error) => dispatch({type: USER_LOGIN_ERROR, payload: error}));

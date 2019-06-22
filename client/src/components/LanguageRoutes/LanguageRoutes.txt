@@ -1,0 +1,27 @@
+import React from "react";
+import {Route} from "react-router-dom";
+
+export default function(reduxProps) {
+    return (
+        <>
+           <Route 
+               path="/languages"
+               render={
+                   () => <div>Languages section</div>
+               }
+           />
+           <Route 
+               path="/languages/:language/library"
+               render={
+                   (props) => <Library language={props.params.language}/>
+               }
+           />
+           <Route 
+               path="/languages/:language/library/:book"
+               render={
+                   (props) => <Book title={props.params.book} language={props.params.language}/>
+               }
+           />      
+       </>
+   );
+}
