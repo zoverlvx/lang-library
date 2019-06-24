@@ -4,7 +4,7 @@
 
 const bcrypt = require("bcryptjs");
 
-const Users = require("../config/model.js")("users");
+const Users = require("../../config/model.js")("users");
 
 module.exports = function (req, res) {
     "use strict";
